@@ -1,7 +1,5 @@
 package pl.marchuck.pokeapi;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -38,17 +36,10 @@ class GenericAdapter<T> {
                 .setConverter(converter)
                 .build();
     }
-
-
     private static abstract class Deserializer<T> implements JsonDeserializer<T> {
-
         public abstract Class<T> setDestinationClass();
-
         @Override
         public T deserialize(JsonElement json, java.lang.reflect.Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-
-            Log.d("Deserializer", "deserialize json: " + json);
-
             return new Gson().fromJson(json, setDestinationClass());
         }
     }
