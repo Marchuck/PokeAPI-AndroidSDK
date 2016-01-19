@@ -20,7 +20,7 @@ import rx.schedulers.Schedulers;
  * @since 19.01.16
  */
 public class PokeDetailGET {
-    rx.Subscription detailsSubscription;
+    private rx.Subscription detailsSubscription;
     private Integer singleId;
     private List<Integer> integerList = new ArrayList<>();
 
@@ -63,12 +63,12 @@ public class PokeDetailGET {
         return this;
     }
 
-    public void manyPokes(List<Integer> pokemonIds, final PokeDetailsReceiver receiver) {
-        getPokemonDetails(pokemonIds, receiver, PokeSort.ASCENDING);
+    public void manyPokes(List<Integer> pokemonIds, final  PokeDetailsReceiver receiver) {
+        manyPokes(pokemonIds, receiver, PokeSort.ASCENDING);
     }
 
 
-    public void getPokemonDetails(List<Integer> pokemonIds, final PokeDetailsReceiver receiver, final PokeSort sort) {
+    public void manyPokes(List<Integer> pokemonIds, final PokeDetailsReceiver receiver, final PokeSort sort) {
         GenericAdapter<PokemonDescription> a =
                 new GenericAdapter<>(PokeClient.POKEAPI_ENDPOINT, PokemonDescription.class);
 

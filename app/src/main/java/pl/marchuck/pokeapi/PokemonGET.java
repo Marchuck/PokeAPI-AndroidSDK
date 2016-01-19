@@ -64,10 +64,10 @@ public class PokemonGET {
     }
 
     public void manyPokes(List<Integer> pokemonIds, final PokesReceiver receiver) {
-        getPokemonDetails(pokemonIds, receiver, PokeSort.ASCENDING);
+        manyPokes(pokemonIds, receiver, PokeSort.ASCENDING);
     }
 
-    public void getPokemonDetails(List<Integer> pokemonIds, final PokesReceiver receiver,
+    public void manyPokes(List<Integer> pokemonIds, final  PokesReceiver receiver,
                                   final PokeSort sort) {
         GenericAdapter<Pokemon> a =
                 new GenericAdapter<>(PokeClient.POKEAPI_ENDPOINT, Pokemon.class);
@@ -103,6 +103,11 @@ public class PokemonGET {
                 }, onError);
     }
 
+    /**
+     *
+     * @param pokemonId for example 1
+     * @param receiver how you can use fetched pokemon
+     */
     public void singlePoke(Integer pokemonId, final PokeReceiver receiver) {
 
         GenericAdapter<Pokemon> a =

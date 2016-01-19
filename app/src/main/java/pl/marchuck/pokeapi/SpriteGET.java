@@ -8,17 +8,22 @@ class SpriteGET {
     private SpriteGET() {
     }
 
+    /**
+     *
+     * @param pokemonName name of pokemon
+     * @return
+     */
     public static String pokemonBigImage(String pokemonName) {
         return "http://img.pokemondb.net/artwork/" + lowerCaseName(pokemonName) + ".jpg";
     }
 
-    static String lowerCaseName(String pokemonName) {
+    private static String lowerCaseName(String pokemonName) {
         if (pokemonName == null || pokemonName.length() < 3)
             pokemonName = "pikachu";
         return pokemonName.toLowerCase();
     }
 
-    static String camelCaseName(String pokemonName) {
+    private static String camelCaseName(String pokemonName) {
         if (pokemonName == null || pokemonName.length() < 3)
             pokemonName = "Pikachu";
         String firstLetter = String.valueOf(pokemonName.charAt(0)).toUpperCase();
@@ -27,12 +32,18 @@ class SpriteGET {
     }
 
 
-    //493 pokemons available
+    /**
+     * @param pokomonName one of 493 pokemons available
+     * @return string url for image
+     */
     public static String pokemonBack(String pokomonName) {
         return "http://img.pokemondb.net/sprites/heartgold-soulsilver/back-normal/" + lowerCaseName(pokomonName) + ".png";
     }
 
-    //493 pokemons available
+    /**
+     * @param pokomonName one of 493 pokemons available
+     * @return string url for image
+     */
     public static String pokemonFront(String pokomonName) {
         return "http://img.pokemondb.net/sprites/heartgold-soulsilver/normal/" + lowerCaseName(pokomonName) + ".png";
     }
