@@ -4,12 +4,11 @@ package pl.marchuck.pokeapi;
  * @author Lukasz Marczak
  * @since 2015-08-25.
  */
-class SpriteGET {
+public class SpriteGET {
     private SpriteGET() {
     }
 
     /**
-     *
      * @param pokemonName name of pokemon
      * @return
      */

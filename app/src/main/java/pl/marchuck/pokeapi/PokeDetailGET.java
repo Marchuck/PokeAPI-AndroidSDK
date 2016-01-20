@@ -3,8 +3,8 @@ package pl.marchuck.pokeapi;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.marchuck.pokeapi.interfaces.PokeDetailReceiver;
-import pl.marchuck.pokeapi.interfaces.PokeDetailsReceiver;
+import pl.marchuck.pokeapi.interfaces.PokeReceiver;
+import pl.marchuck.pokeapi.interfaces.PokesReceiver;
 import pl.marchuck.pokeapi.model.PokemonDescription;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -63,12 +63,12 @@ public class PokeDetailGET {
         return this;
     }
 
-    public void manyPokes(List<Integer> pokemonIds, final  PokeDetailsReceiver receiver) {
+    public void manyPokes(List<Integer> pokemonIds, final PokesReceiver<PokemonDescription> receiver) {
         manyPokes(pokemonIds, receiver, PokeSort.ASCENDING);
     }
 
 
-    public void manyPokes(List<Integer> pokemonIds, final PokeDetailsReceiver receiver, final PokeSort sort) {
+    public void manyPokes(List<Integer> pokemonIds, final PokesReceiver<PokemonDescription> receiver, final PokeSort sort) {
         GenericAdapter<PokemonDescription> a =
                 new GenericAdapter<>(PokeClient.POKEAPI_ENDPOINT, PokemonDescription.class);
 
@@ -103,7 +103,7 @@ public class PokeDetailGET {
                 }, onError);
     }
 
-    public void singlePoke(Integer pokemonId, final PokeDetailReceiver receiver) {
+    public void singlePoke(Integer pokemonId, final PokeReceiver<PokemonDescription> receiver) {
 
         GenericAdapter<PokemonDescription> a =
                 new GenericAdapter<>(PokeClient.POKEAPI_ENDPOINT, PokemonDescription.class);

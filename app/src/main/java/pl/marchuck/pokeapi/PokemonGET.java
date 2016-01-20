@@ -1,6 +1,5 @@
 package pl.marchuck.pokeapi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.marchuck.pokeapi.interfaces.PokeReceiver;
@@ -20,17 +19,12 @@ import rx.schedulers.Schedulers;
  */
 public class PokemonGET extends BaseRequest {
 
-
-    private Integer singleId;
-    private List<Integer> integerList = new ArrayList<>();
-
-
-    public void manyPokes(List<Integer> pokemonIds, final PokesReceiver receiver) {
+    public void manyPokes(List<Integer> pokemonIds, final PokesReceiver<Pokemon> receiver) {
         manyPokes(pokemonIds, receiver, PokeSort.ASCENDING);
     }
 
-    public void manyPokes(List<Integer> pokemonIds, final  PokesReceiver receiver,
-                                  final PokeSort sort) {
+    public void manyPokes(List<Integer> pokemonIds, final PokesReceiver<Pokemon> receiver,
+                          final PokeSort sort) {
         GenericAdapter<Pokemon> a =
                 new GenericAdapter<>(PokeClient.POKEAPI_ENDPOINT, Pokemon.class);
 
@@ -66,11 +60,10 @@ public class PokemonGET extends BaseRequest {
     }
 
     /**
-     *
      * @param pokemonId for example 1
-     * @param receiver how you can use fetched pokemon
+     * @param receiver  how you can use fetched pokemon
      */
-    public void singlePoke(Integer pokemonId, final PokeReceiver receiver) {
+    public void singlePoke(Integer pokemonId, final PokeReceiver<Pokemon> receiver) {
 
         GenericAdapter<Pokemon> a =
                 new GenericAdapter<>(PokeClient.POKEAPI_ENDPOINT, Pokemon.class);

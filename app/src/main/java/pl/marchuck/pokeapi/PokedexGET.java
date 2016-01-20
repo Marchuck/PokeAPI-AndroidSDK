@@ -19,6 +19,14 @@ public class PokedexGET extends BaseRequest {
     public void get(PokeReceiver<Pokedex> receiver) {
         getVersion(1, receiver);
     }
+    public void vv(){
+        getVersion(1, new PokeReceiver<Pokedex>() {
+            @Override
+            public void onReceived(Pokedex pokemon) {
+
+            }
+        });
+    }
 
     public void getVersion(Integer version, final PokeReceiver<Pokedex> receiver) {
 
