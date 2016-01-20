@@ -10,4 +10,7 @@ public class PokeDetail {
     public String name;
     public String resource_uri;
 
+    public PokeDetail() {
+    }
+
 }

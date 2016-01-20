@@ -8,7 +8,6 @@ import pl.marchuck.pokeapi.interfaces.PokesReceiver;
 import pl.marchuck.pokeapi.model.Pokemon;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.functions.Func2;
@@ -19,49 +18,12 @@ import rx.schedulers.Schedulers;
  *
  * @since 19.01.16
  */
-public class PokemonGET {
-    private rx.Subscription pokeSubscription;
+public class PokemonGET extends BaseRequest {
 
-    public void unSubscribe() {
-        if (pokeSubscription != null && !pokeSubscription.isUnsubscribed())
-            pokeSubscription.unsubscribe();
-    }
 
     private Integer singleId;
     private List<Integer> integerList = new ArrayList<>();
-    private Action1<Throwable> onError = new Action1<Throwable>() {
-        @Override
-        public void call(Throwable throwable) {
 
-        }
-    };
-    private Action0 onStart = new Action0() {
-        @Override
-        public void call() {
-
-        }
-    };
-    private Action0 onEnd = new Action0() {
-        @Override
-        public void call() {
-
-        }
-    };
-
-    public PokemonGET onDownloadStart(Action0 actionStart) {
-        this.onStart = actionStart;
-        return this;
-    }
-
-    public PokemonGET onDownloadEnd(Action0 actionEnd) {
-        this.onStart = actionEnd;
-        return this;
-    }
-
-    public PokemonGET onError(Action1<Throwable> actionError) {
-        this.onError = actionError;
-        return this;
-    }
 
     public void manyPokes(List<Integer> pokemonIds, final PokesReceiver receiver) {
         manyPokes(pokemonIds, receiver, PokeSort.ASCENDING);
