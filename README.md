@@ -8,8 +8,7 @@ pokeapi.co V1 wrapped as handy Android API.
 
 #Usage
 
-see Wiki :-)
-https://github.com/Marchuck/PokeAPI-AndroidSDK/wiki
+see [Wiki :-)](https://github.com/Marchuck/PokeAPI-AndroidSDK/wiki)
 
 #Download
 
