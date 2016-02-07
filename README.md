@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PokeAPI--AndroidSDK-green.svg?style=true)](https://android-arsenal.com/details/1/3111)
+
 # PokeAPI-AndroidSDK
 
 Thanks to contributors of https://github.com/phalt/pokeapi
